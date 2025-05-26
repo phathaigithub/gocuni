@@ -1,3 +1,18 @@
+# Node modules
+node_modules/
+
+# Build output
+build/
+dist/
+
+# Debug log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dotenv environment variables file
+.env
+
 # Compiled class file
 *.class
 
