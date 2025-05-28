@@ -1,14 +1,18 @@
 package com.example.gocuni.response;
 
+import lombok.*;
+
+@Data
+@Getter
+@Setter
 public class ApiResponse<T> {
-    private boolean success;
+    private int status;
     private String message;
     private T data;
 
-    // Constructor, getter/setter
 
-    public ApiResponse(boolean success, String message, T data) {
-        this.success = success;
+    public ApiResponse(int status, String message, T data) {
+        this.status = status;
         this.message = message;
         this.data = data;
     }
