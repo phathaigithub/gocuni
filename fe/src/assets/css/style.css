@@ -1,0 +1,1112 @@
+/* General styles */
+body {
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.hover-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Header styles */
+.navbar {
+  padding: 15px 0;
+}
+
+.navbar-brand img {
+  max-height: 40px;
+}
+
+.search-container {
+  width: 300px;
+}
+
+.search-input {
+  padding-right: 40px;
+  border-radius: 20px;
+}
+
+.search-button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #6c757d;
+}
+
+.user-icon {
+  font-size: 1.5rem;
+  color: #6c757d;
+}
+
+/* Main banner styles */
+.main-banner {
+  margin-bottom: 3rem;
+}
+
+.carousel-image {
+  height: 500px;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.carousel-caption-custom {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 80%;
+  margin: 0 auto;
+  bottom: 40px;
+}
+
+/* Static banner styles */
+.static-banner {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.banner-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  filter: brightness(0.7);
+  transition: transform 0.5s ease;
+}
+
+.static-banner:hover .banner-image {
+  transform: scale(1.02);
+}
+
+.banner-content {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 60px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  color: white;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.banner-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content .btn {
+  font-size: 1.2rem;
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .banner-image {
+    height: 350px;
+  }
+  
+  .banner-content {
+    padding: 30px;
+  }
+  
+  .banner-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .banner-content p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Post card styles */
+.post-card {
+  border: none;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.post-thumbnail-wrapper {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.post-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.hover-effect:hover .post-thumbnail {
+  transform: scale(1.05);
+}
+
+.post-title {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 3rem;
+}
+
+.category-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 123, 255, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Sửa lại CSS cho author avatar trong PostCard */
+.post-card .author-avatar {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
+
+/* Section titles */
+.section-title {
+  position: relative;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #343a40;
+  padding-bottom: 10px;
+}
+
+.section-title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background-color: #007bff;
+}
+
+/* Footer styles */
+footer {
+  margin-top: 5rem;
+}
+
+.social-links a {
+  transition: opacity 0.3s ease;
+}
+
+.social-links a:hover {
+  opacity: 0.7;
+}
+
+/* Pagination */
+.pagination .page-link {
+  color: #007bff;
+  border-radius: 0;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+/* Auth pages styling */
+.form-control:focus {
+  box-shadow: none;
+  border-color: #0d6efd;
+}
+
+.input-group-text {
+  background-color: #f8f9fa;
+  border-right: none;
+}
+
+.input-group .form-control {
+  border-left: none;
+}
+
+.input-group:focus-within .input-group-text {
+  border-color: #0d6efd;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.btn-primary {
+  font-weight: 500;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.auth-divider span {
+  padding: 0 10px;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Admin layout styling */
+.admin-layout {
+  min-height: 100vh;
+}
+
+/* Admin sidebar */
+.admin-sidebar {
+  background-color: #343a40;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background-color: #343a40;
+  color: #fff;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  transition: width 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.admin-sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar-header {
+  padding: 15px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-brand {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-toggle {
+  color: white;
+}
+
+.sidebar-content {
+  padding-top: 20px;
+}
+
+.sidebar-link {
+  color: rgba(255, 255, 255, 0.75) !important;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-link svg {
+  font-size: 1.2rem;
+  min-width: 20px;
+}
+
+/* Admin main content */
+.admin-main {
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.admin-layout .admin-sidebar.collapsed + .admin-main {
+  margin-left: 60px;
+}
+
+.admin-header {
+  height: 60px;
+  border-bottom: 1px solid #e3e6f0;
+}
+
+/* Admin cards and stats */
+.stat-card {
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.stat-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Tables and Forms */
+.table th {
+  background-color: #f8f9fa;
+  border-top: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+}
+
+/* Responsive admin layout */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 60px;
+  }
+  
+  .admin-sidebar:not(.collapsed) {
+    width: 250px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .admin-main {
+    margin-left: 60px;
+  }
+  
+  .admin-header .navbar-brand {
+    display: none;
+  }
+  
+  .admin-sidebar-wrapper {
+    position: fixed;
+    z-index: 1040;
+    width: 250px;
+  }
+  
+  .admin-sidebar-wrapper.closed {
+    margin-left: -250px;
+  }
+}
+.tiptap-editor-container {
+  margin-bottom: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.tiptap-editor-container.is-invalid {
+  border-color: #dc3545;
+}
+
+/* Menu bar styling */
+.tiptap-menu-bar {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ced4da;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.tiptap-menu-bar button {
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 6px 10px;
+  margin: 0;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  height: 38px;
+  width: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.tiptap-menu-bar button:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.tiptap-menu-bar button.is-active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.tiptap-menu-bar button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tiptap-menu-bar button i {
+  font-size: 16px; /* Increase icon size */
+}
+
+.tiptap-menu-bar .divider {
+  width: 1px;
+  height: 24px;
+  background-color: #ced4da;
+  margin: 0 5px;
+}
+
+.tiptap-editor-content {
+  padding: 1rem;
+}
+
+.tiptap-editor-content .ProseMirror {
+  min-height: 250px;
+  outline: none;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Popup modal for image insertion */
+.image-upload-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+}
+
+.image-upload-dialog {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 500px;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.image-upload-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.image-upload-header h4 {
+  margin: 0;
+}
+
+.image-upload-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6c757d;
+}
+
+.image-upload-body {
+  margin-bottom: 16px;
+}
+
+.image-upload-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+
+
+.lexical-placeholder {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  pointer-events: none;
+  color: #aaa;
+  font-size: 15px;
+  user-select: none;
+}
+
+/* Typography for editor content */
+.lexical-h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+  font-weight: bold;
+}
+
+.lexical-h2 {
+  font-size: 1.5em;
+  margin: 0.75em 0;
+  font-weight: bold;
+}
+
+.lexical-h3 {
+  font-size: 1.17em;
+  margin: 0.83em 0;
+  font-weight: bold;
+}
+
+.lexical-bold {
+  font-weight: bold;
+}
+
+.lexical-italic {
+  font-style: italic;
+}
+
+.lexical-underline {
+  text-decoration: underline;
+}
+
+.lexical-strikethrough {
+  text-decoration: line-through;
+}
+
+.lexical-underlineStrikethrough {
+  text-decoration: underline line-through;
+}
+
+.lexical-link {
+  color: rgb(33, 111, 219);
+  text-decoration: underline;
+}
+
+/* Lists */
+.ListItem {
+  margin-left: 20px;
+}
+
+.ListItem-bullet {
+  list-style-type: disc;
+}
+
+.ListItem-number {
+  list-style-type: decimal;
+}
+
+/* Block quotes */
+.quote {
+  margin-left: 20px;
+  margin-right: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 16px;
+  border-left: 4px solid #ccc;
+  color: rgb(101, 103, 107);
+}
+
+/* Code blocks */
+.code {
+  background-color: rgb(240, 242, 245);
+  font-family: Menlo, Consolas, Monaco, monospace;
+  display: block;
+  padding: 8px 8px;
+  line-height: 1.53;
+  font-size: 13px;
+  margin: 8px 0;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  margin: 1em 0;
+  display: block;
+}
+
+.alert-danger {
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #dc3545;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Responsive container cho thumbnail */
+.post-thumbnail-container {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.post-detail-thumbnail {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 400px;
+  transition: transform 0.3s ease;
+}
+
+/* === PostCard styling (đã có sẵn) === */
+.post-card {
+  border: none;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.post-thumbnail-wrapper {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.post-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.hover-effect:hover .post-thumbnail {
+  transform: scale(1.05);
+}
+
+.post-title {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 3rem;
+}
+
+.category-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 123, 255, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Sửa lại CSS cho author avatar trong PostCard */
+.post-card .author-avatar {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
+
+/* === PostDetail styling (thêm prefix 'detail-' để tránh xung đột) === */
+.detail-thumbnail-container {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.detail-thumbnail {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  max-height: 400px;
+  transition: transform 0.3s ease;
+}
+
+/* Đảm bảo hình ảnh trong nội dung bài viết cũng responsive */
+.responsive-content {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.responsive-content img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+  margin: 1rem auto;
+}
+
+/* Responsive cho avatar trong PostDetail */
+.detail-author-container {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.detail-author-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive cho avatar trong comments */
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Đảm bảo nội dung không tràn ra ngoài trên màn hình nhỏ */
+@media (max-width: 576px) {
+  .d-flex.align-items-center.mb-4.text-muted.small {
+    flex-wrap: wrap;
+  }
+  
+  .d-flex.align-items-center.me-4 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Thêm vào style.css */
+.user-avatar {
+  object-fit: cover;
+  width: 32px;
+  height: 32px;
+}
+
+/* === Category Styling === */
+.category-header {
+  background-color: #f8f9fa;
+  position: relative;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.category-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #007bff, #6610f2);
+  opacity: 0.7;
+}
+
+.category-header .category-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: rgba(13, 110, 253, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.category-header h1 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+/* Post cards in category view */
+.category-post-card {
+  transition: all 0.3s ease;
+  height: 100%;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.category-post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.category-post-card .card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Pagination styling */
+.pagination {
+  margin-top: 2rem;
+}
+
+.pagination .page-item .page-link {
+  border-radius: 50%;
+  margin: 0 3px;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #495057;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: #f8f9fa;
+}
+
+/* Empty state */
+.category-empty-state {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.category-empty-state svg {
+  font-size: 3rem;
+  color: #adb5bd;
+  margin-bottom: 1.5rem;
+}
+
+/* Text truncate utilities */
+.text-truncate-2, .text-truncate-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-truncate-2 {
+  -webkit-line-clamp: 2;
+  max-height: 3rem;
+}
+
+.text-truncate-3 {
+  -webkit-line-clamp: 3;
+  max-height: 4.5rem;
+}
+
+/* Styling cho comment avatar */
+.comment-avatar {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
+/* Styling cho container chứa media của comment */
+.comment-media-container {
+  margin: 10px 0;
+}
+
+.comment-media-item {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+/* Styling cho container preview media */
+.media-preview {
+  margin-bottom: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Styling cho container chứa các phản hồi */
+.replies-container {
+  border-left: 2px solid #e9ecef;
+  padding-left: 15px;
+  margin-top: 10px;
+}
+
+/* Styling cho button like khi đã like */
+.liked {
+  color: #0d6efd !important;
+}
+
+.post-item {
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+}
+
+.post-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.post-item .card-title {
+  font-weight: 600;
+}
+
+.post-item .card-footer {
+  background-color: white;
+  padding-top: 0.5rem !important;
+}
+
+/* Thêm vào cuối file - Style cho card bài viết */
+.post-card {
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  height: 100%;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.post-thumbnail {
+  position: relative;
+  overflow: hidden;
+}
+
+.post-card .card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 600;
+  min-height: 42px;
+  margin-bottom: 0.5rem;
+}
+
+.post-card .card-body {
+  padding: 1rem;
+}
+
+.post-card .badge {
+  font-size: 0.7rem;
+  padding: 0.35em 0.65em;
+}
+
+/* Card bài viết */
+.post-card {
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Buttons trong card */
+.post-card .btn {
+  transition: all 0.2s ease;
+}
+
+.post-card .btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.post-card .btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Thêm style cho nút xóa */
+.post-card .btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+  transition: all 0.2s ease;
+}
+
+.post-card .btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Style cho modal xác nhận xóa */
+.modal-confirm .modal-content {
+  border-radius: 10px;
+  border: none;
+}
+
+.modal-confirm .modal-header {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.modal-confirm .modal-footer {
+  border-top: 1px solid #f1f1f1;
+}

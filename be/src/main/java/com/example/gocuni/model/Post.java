@@ -1,10 +1,12 @@
 package com.example.gocuni.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -34,11 +36,16 @@ public class Post {
     
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @JsonBackReference
     private Category category;
     
     @CreationTimestamp
     private LocalDateTime createdAt;
     
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    private List<Comment> comments = new ArrayList<>();
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
+    
+    private boolean published = true;
+    
+    private int viewCount = 0;
 }
