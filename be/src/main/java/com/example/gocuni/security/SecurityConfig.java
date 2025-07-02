@@ -52,13 +52,16 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.GET, "/api/posts/**").permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
                     .requestMatchers(HttpMethod.GET, "/api/comments/**").permitAll()
+                    // Thêm dòng này
+                    .requestMatchers("/api/admin/comments/**").hasRole("ADMIN")
                     // Cập nhật để truy cập tài nguyên tĩnh
                     .requestMatchers("/upload/**").permitAll()
-                    .requestMatchers("/comments/**").permitAll() // Thêm đường dẫn này
+                    .requestMatchers("/comments/**").permitAll() 
                     .requestMatchers("/avatars/**").permitAll()
                     .requestMatchers("/posts/**").permitAll()
                     .requestMatchers("/static/**").permitAll()
-                    .requestMatchers("/api/auth/signin", "/api/auth/signup", "/api/auth/refresh-token").permitAll() // Thêm dòng này
+                    .requestMatchers("/api/auth/signin", "/api/auth/signup", "/api/auth/refresh-token").permitAll() 
+                    .requestMatchers(HttpMethod.POST, "/api/admin/posts/**").hasRole("ADMIN")
                     .anyRequest().authenticated()
             );
 

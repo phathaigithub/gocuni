@@ -143,6 +143,8 @@ public class PostController {
         ));
     }
     
+    // Cập nhật phương thức createPost để hỗ trợ chức năng gửi bài chờ duyệt
+
     @PostMapping("/add")
     public ResponseEntity<ApiResponse<PostResponse>> createPost(
             @RequestParam("title") String title,
@@ -193,6 +195,16 @@ public class PostController {
                 System.out.println("No thumbnail provided or thumbnail is empty");
             }
             
+            // Nếu người dùng muốn xuất bản, đặt trạng thái là PENDING để chờ admin duyệt
+            if (published) {
+                post.setStatus("PENDING");
+                post.setPublished(false); // Chưa xuất bản cho đến khi được duyệt
+            } else {
+                post.setStatus("DRAFT");
+                post.setPublished(false);
+            }
+            
+            // Lưu bài viết
             Post savedPost = postRepository.save(post);
             PostResponse response = convertToPostResponse(savedPost);
             System.out.println("Response thumbnail: " + response.getThumbnail());

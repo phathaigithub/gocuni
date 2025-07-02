@@ -365,13 +365,6 @@ footer {
   min-width: 20px;
 }
 
-/* Admin main content */
-.admin-main {
-  margin-left: 250px;
-  transition: margin-left 0.3s ease;
-  min-height: 100vh;
-  background-color: #f8f9fa;
-}
 
 .admin-layout .admin-sidebar.collapsed + .admin-main {
   margin-left: 60px;

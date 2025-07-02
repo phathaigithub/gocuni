@@ -18,7 +18,7 @@ const ProtectedRoute = ({ children, requiredRole }) => {
   }
   
   // Nếu yêu cầu role cụ thể, kiểm tra quyền
-  if (requiredRole && user.roleName !== requiredRole) {
+  if (requiredRole && user.role !== requiredRole) {
     // Không đủ quyền, chuyển về trang chủ
     return <Navigate to="/" replace />;
   }

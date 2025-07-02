@@ -16,8 +16,8 @@ const Header = () => {
   const { user, isAuthenticated } = useSelector(state => state.auth);
   const { categories } = useSelector(state => state.category); // Lấy danh sách danh mục từ Redux
   
-  // Kiểm tra quyền admin
-  const isAdmin = user?.role === 1;
+  // Kiểm tra quyền admin - sửa để phù hợp với server
+  const isAdmin = user?.role === 'ROLE_ADMIN';
 
   // Fetch danh sách danh mục khi component mount
   useEffect(() => {
@@ -30,6 +30,16 @@ const Header = () => {
         console.error("Error fetching categories:", err);
       });
   }, [dispatch]);
+
+  // Thêm console.log để kiểm tra cấu trúc dữ liệu user
+  useEffect(() => {
+    console.log("User data:", user);
+    console.log("User role:", user?.role);
+  }, [user]);
+
+  // Điều chỉnh cách kiểm tra quyền admin
+  // const isAdmin = user?.role?.name === 'ROLE_ADMIN'; // Nếu role là object
+  // const isAdmin = user?.role === 'ROLE_ADMIN'; // Nếu role là string
 
   // Hàm xử lý đường dẫn hình ảnh
   const getImageUrl = (imagePath) => {
@@ -116,7 +126,6 @@ const Header = () => {
                 <NavDropdown.Item disabled>Đang tải danh mục...</NavDropdown.Item>
               )}
             </NavDropdown>
-            {/* <Nav.Link as={Link} to="/post/create" className="mx-2">Đóng góp bài viết</Nav.Link> */}
           </Nav>
           
           <Form className="d-flex mx-auto" onSubmit={handleSearch}>

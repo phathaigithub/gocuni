@@ -2,6 +2,7 @@
   margin-bottom: 1rem;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
+  overflow: hidden;
 }
 
 .tiptap-editor-container.is-invalid {
@@ -162,4 +163,103 @@
   border-radius: 5px;
   font-family: monospace;
   overflow-x: auto;
+}
+
+.editor-menu {
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ced4da;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.editor-menu button {
+  background-color: white;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.editor-menu button:hover {
+  background-color: #e9ecef;
+}
+
+.editor-menu button.is-active {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+.tiptap-editor {
+  padding: 1rem;
+  min-height: 300px;
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.tiptap-editor:focus {
+  outline: none;
+}
+
+.tiptap-editor p {
+  margin-bottom: 1rem;
+}
+
+.tiptap-editor img {
+  max-width: 100%;
+  height: auto;
+}
+
+.tiptap-editor blockquote {
+  border-left: 3px solid #ced4da;
+  padding-left: 1rem;
+  color: #6c757d;
+  margin: 1rem 0;
+}
+
+.tiptap-editor ul,
+.tiptap-editor ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.thumbnail-preview {
+  margin-top: 1rem;
+}
+
+/* Thêm đoạn này vào cuối file */
+
+/* Loại bỏ viền đen khi focus */
+.tiptap-editor .ProseMirror {
+  outline: none !important;
+}
+
+.tiptap-editor .ProseMirror:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Loại bỏ viền đen xung quanh các nút trong menu */
+.editor-menu button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Loại bỏ đường viền đen của các phần tử trong ProseMirror */
+.tiptap-editor .ProseMirror * {
+  outline: none !important;
+}
+
+/* Ẩn đường viền đen xung quanh các nút trong menu khi active */
+.tiptap-editor-container button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Loại bỏ đường viền đen khi select text */
+.tiptap-editor ::selection {
+  background-color: rgba(0, 123, 255, 0.2); /* Màu xanh nhạt thay vì đen */
 }

@@ -56,11 +56,6 @@ const PostCard = ({ post }) => {
     return `http://localhost:8080/upload/${thumbnailPath}`;
   };
 
-  // Thêm log để debug
-  console.log('Post data:', post);
-  console.log('Thumbnail path:', post.thumbnail);
-  console.log('Thumbnail URL:', post.thumbnail ? getThumbnailUrl(post.thumbnail) : 'No thumbnail');
-
   return (
     <Card className="h-100 post-card shadow-sm hover-effect">
       <Link to={`/post/${post.id}`} className="text-decoration-none">

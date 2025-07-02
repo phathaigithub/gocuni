@@ -74,37 +74,54 @@ public class AuthController {
     
     @PostMapping("/signin")
     public ResponseEntity<ApiResponse<JwtResponse>> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
-        
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtUtils.generateToken(authentication);
-        
-        org.springframework.security.core.userdetails.User userDetails = 
-                (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
-        
-        User user = userRepository.findByEmail(userDetails.getUsername()).orElseThrow();
-        
-        // Tạo refresh token mới
-        RefreshToken refreshToken = refreshTokenService.createRefreshToken(user.getId());
-        
-        JwtResponse jwtResponse = new JwtResponse(
-            jwt, 
-            user.getId(), 
-            user.getEmail(),
-            user.getFullName(),
-            user.getAvatarUrl(),
-            user.getRoleName(),
-            refreshToken.getToken() 
-        );
-        
-        ApiResponse<JwtResponse> response = new ApiResponse<>(
-            HttpStatus.OK.value(),
-            "Đăng nhập thành công",
-            jwtResponse
-        );
-        
-        return ResponseEntity.ok(response);
+        try {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
+            
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            String jwt = jwtUtils.generateToken(authentication);
+            
+            org.springframework.security.core.userdetails.User userDetails = 
+                    (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
+            
+            User user = userRepository.findByEmail(userDetails.getUsername()).orElseThrow();
+            
+            // Xóa refresh token cũ trước
+            refreshTokenService.deleteByUserId(user.getId());
+            
+            // Tạo refresh token mới sau khi đã xóa cũ
+            RefreshToken refreshToken = refreshTokenService.createRefreshToken(user.getId());
+            
+            JwtResponse jwtResponse = new JwtResponse(
+                jwt, 
+                user.getId(), 
+                user.getEmail(),
+                user.getFullName(),
+                user.getAvatarUrl(),
+                user.getRoleName(),
+                refreshToken.getToken() 
+            );
+            
+            ApiResponse<JwtResponse> response = new ApiResponse<>(
+                HttpStatus.OK.value(),
+                "Đăng nhập thành công",
+                jwtResponse
+            );
+            
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            // Log lỗi để debug
+            System.err.println("Lỗi đăng nhập: " + e.getMessage());
+            e.printStackTrace();
+            
+            ApiResponse<JwtResponse> response = new ApiResponse<>(
+                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                "Đã xảy ra lỗi: " + e.getMessage(),
+                null
+            );
+            
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
     }
     
     @PostMapping("/signup")

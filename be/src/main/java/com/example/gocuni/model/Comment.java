@@ -53,10 +53,10 @@ public class Comment {
     private List<CommentMedia> media = new ArrayList<>();
     
     // parentComment cho tính năng phản hồi bình luận
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
     private Comment parentComment;
     
-    @OneToMany(mappedBy = "parentComment", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "parentComment", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Comment> replies = new ArrayList<>();
 }

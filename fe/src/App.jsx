@@ -12,10 +12,6 @@ import { UserProfile } from './feature/user';
 import { PostDetail } from './feature/post';
 import HomePage from './pages/HomePage';
 import ClientLayout from './components/client/ClientLayout';
-import Dashboard from './pages/admin/Dashboard';
-import UserManagement from './pages/admin/UserManagement';
-import PostManagement from './pages/admin/PostManagement';
-import CategoryManagement from './pages/admin/CategoryManagement';
 import ProtectedRoute from './routes/ProtectedRoute';
 import CategoryPage from './feature/category/component/CategoryPage'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,6 +19,14 @@ import './assets//css/style.css';
 import CreatePost from './feature/post/component/CreatePost';
 import EditPost from './feature/post/component/EditPost';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import AdminLayout from './feature/admin/component/common/AdminLayout';
+import AdminUserList from './feature/admin/component/user/AdminUserList';
+import AdminUserForm from './feature/admin/component/user/AdminUserForm';
+import AdminPostList from './feature/admin/component/post/AdminPostList';
+import AdminPostForm from './feature/admin/component/post/AdminPostForm';
+import AdminPostApproval from './feature/admin/component/post/AdminPostApproval';
+import AdminCategoryList from './feature/admin/component/category/AdminCategoryList';
+import AdminCommentList from './feature/admin/component/comment/AdminCommentList';
 
 function App() {
   return (
@@ -60,15 +64,28 @@ function App() {
                 </Route>
                 
                 {/* Admin Routes */}
-                <Route path="/admin" element={
-                  <ProtectedRoute requiredRole="ROLE_ADMIN">
-                    {/* <AdminLayout /> */}
-                  </ProtectedRoute>
-                }>
-                  <Route index element={<Dashboard />} />
-                  <Route path="users" element={<UserManagement />} />
-                  <Route path="posts" element={<PostManagement />} />
-                  <Route path="categories" element={<CategoryManagement />} />
+                <Route 
+                  path="/admin" 
+                  element={
+                    <ProtectedRoute requiredRole="ROLE_ADMIN">
+                      <AdminLayout />
+                    </ProtectedRoute>
+                  }
+                >
+                  <Route index element={<AdminUserList />} />
+                  <Route path="users" element={<AdminUserList />} />
+                  <Route path="users/create" element={<AdminUserForm />} />
+                  <Route path="users/edit/:id" element={<AdminUserForm />} />
+                  
+                  {/* Post routes */}
+                  <Route path="posts" element={<AdminPostList />} />
+                  <Route path="posts/create" element={<AdminPostForm />} />
+                  <Route path="posts/edit/:id" element={<AdminPostForm />} />
+                  <Route path="posts/approval" element={<AdminPostApproval />} />
+                  
+                  {/* Thêm các routes cho categories và comments */}
+                  <Route path="categories" element={<AdminCategoryList />} />
+                  <Route path="comments" element={<AdminCommentList />} />
                 </Route>
               </Route>
             </Routes>
